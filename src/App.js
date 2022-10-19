@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import './App.css';
 
 function App() {
-  const max = 90;
   const [arrayItems, setArrayItems] = useState([]);
   const [arrLen, setArrLen] = useState(0);
   const [insertAtIndex, setInsertAtIndex] = useState(0);
   const [removeAtIndex, setRemoveAtIndex] = useState(0);
   const emoji = ["✌", "😂", "😝", "😁", "😱", "👉", "🙌", "🍻", "🔥", "🌈", "☀", "🎈", "🌹", "💄", "🎀", "⚽", "🎾", "🏁", "😡", "👿", "🐻", "🐶", "🐬", "🐟", "🍀", "👀", "🚗", "🍎", "💝", "💙", "👌", "❤", "😍", "😉", "😓", "😳", "💪", "💩", "🍸", "🔑", "💖", "🌟", "🎉", "🌺", "🎶", "👠", "🏈", "⚾", "🏆", "👽", "💀", "🐵", "🐮", "🐩", "🐎", "💣", "👃", "👂", "🍓", "💘", "💜", "👊", "💋", "😘", "😜", "😵", "🙏", "👋", "🚽", "💃", "💎", "🚀", "🌙", "🎁", "⛄", "🌊", "⛵", "🏀", "🎱", "💰", "👶", "👸", "🐰", "🐷", "🐍", "🐫", "🔫", "👄", "🚲", "🍉", "💛", "💚"];
+  const max = emoji.length;
 
-  const getRandomInt = (max) => {
+  const getRandomInt = () => {
     return Math.floor(Math.random() * max);
   }
 
@@ -18,7 +18,7 @@ function App() {
   }, [arrayItems, arrLen])
 
   const pushClick = () => {
-    arrayItems.push(emoji[getRandomInt(max)]);
+    arrayItems.push(emoji[getRandomInt()]);
     setArrLen(arrayItems.length);
   }
 
@@ -28,7 +28,7 @@ function App() {
   }
 
   const unshiftClick = () => {
-    arrayItems.unshift(emoji[getRandomInt(max)]);
+    arrayItems.unshift(emoji[getRandomInt()]);
     setArrLen(arrayItems.length);
   }
 
@@ -38,7 +38,7 @@ function App() {
   }
 
   const insertAtClick = () => {
-    arrayItems.splice(insertAtIndex, 0, emoji[getRandomInt(max)]);
+    arrayItems.splice(insertAtIndex, 0, emoji[getRandomInt()]);
     setArrLen(arrayItems.length);
     setInsertAtIndex(0);
   }
